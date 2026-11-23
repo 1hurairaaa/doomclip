@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOOMCLIP — AI Clip Command Center</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #080b09;
+      color: #e8eee9;
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+    }
+    header {
+      padding: 22px 7%;
+      border-bottom: 1px solid #26372b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo { font-size: 25px; font-weight: 900; letter-spacing: 3px; }
+    .logo span { color: #55e58a; }
+    .status { color: #70e99a; font-size: 12px; }
+    main { max-width: 1000px; margin: 75px auto; padding: 20px; }
+    .eyebrow { color: #65dc8d; letter-spacing: 4px; font-size: 12px; }
+    h1 { font-size: clamp(38px, 7vw, 68px); margin: 18px 0; }
+    h1 span { color: #58e38c; }
+    .subtitle { color: #9aa69e; line-height: 1.7; max-width: 650px; }
+    .panel {
+      margin-top: 40px;
+      background: #101711;
+      border: 1px solid #294333;
+      border-radius: 14px;
+      padding: 28px;
+    }
+    label { display: block; margin-bottom: 12px; font-size: 14px; }
+    input {
+      width: 100%; padding: 17px;
+      background: #080d09; border: 1px solid #395542;
+      border-radius: 8px; color: white; font-size: 15px;
+    }
+    button {
+      margin-top: 17px; padding: 15px 25px;
+      background: #5be58e; color: #07110a;
+      border: 0; border-radius: 7px;
+      font-weight: bold; cursor: pointer;
+    }
+    button:hover { background: #8affb2; }
+    #message { margin-top: 18px; color: #9eada3; font-size: 14px; }
+    .features {
+      display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+      gap: 15px; margin-top: 30px;
+    }
+    .feature {
+      padding: 22px; background: #101711;
+      border: 1px solid #26372b; border-radius: 10px;
+    }
+    .feature h3 { color: #66e995; margin-bottom: 10px; }
+    .feature p { color: #98a49c; font-size: 13px; line-height: 1.6; }
+    footer { text-align: center; padding: 35px; color: #647168; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">DOOM<span>CLIP</span></div>
+    <div class="status">● LOCAL-FIRST AI PLATFORM</div>
+  </header>
+
+  <main>
+    <div class="eyebrow">THE AI CLIP COMMAND CENTER</div>
+    <h1>ONE STREAM.<br><span>BEST MOMENTS.</span></h1>
+    <p class="subtitle">
+      Turn long videos and livestreams into engaging short-form clips.
+      Detect highlights, generate vertical videos and create animated captions.
+    </p>
+
+    <section class="panel">
+      <label for="videoUrl">PASTE YOUR YOUTUBE VIDEO OR STREAM URL</label>
+      <input id="videoUrl" type="url" placeholder="https://www.youtube.com/watch?v=...">
+      <button onclick="startProcessing()">ANALYZE VIDEO →</button>
+      <p id="message">Waiting for a video URL. Processing engine will be connected in the next phase.</p>
+    </section>
+
+    <section class="features">
+      <div class="feature">
+        <h3>01 / AI DETECTION</h3>
+        <p>Find interesting moments, reactions and highlights.</p>
+      </div>
+      <div class="feature">
+        <h3>02 / SMART CLIPPING</h3>
+        <p>Create vertical short-form clips automatically.</p>
+      </div>
+      <div class="feature">
+        <h3>03 / ANIMATED CAPTIONS</h3>
+        <p>Generate synchronized subtitles for your clips.</p>
+      </div>
+      <div class="feature">
+        <h3>04 / CLIP RANKING</h3>
+        <p>Rank detected moments by their highlight potential.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>DOOMCLIP © 2026 — BUILT WITH OPEN-SOURCE TECHNOLOGY</footer>
+
+  <script>
+    function startProcessing() {
+      const url = document.getElementById("videoUrl").value.trim();
+      const message = document.getElementById("message");
+
+      if (!url || !/^https?:\/\//i.test(url)) {
+        message.textContent = "Please enter a valid video URL.";
+        return;
+      }
+
+      message.textContent =
+        "Interface ready. The video-processing backend is not connected yet.";
+    }
+  </script>
+</body>
+</html>
